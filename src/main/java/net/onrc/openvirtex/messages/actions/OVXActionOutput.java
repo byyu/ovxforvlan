@@ -209,6 +209,7 @@ public class OVXActionOutput extends OFActionOutput implements
                                         flowId);
                                 approvedActions
                                         .addAll(lUtils.unsetLinkFields());
+                                approvedActions.add(new OVXActionStripVirtualLan());
                             } else {
                                 // TODO: substitute all the return with
                                 // exceptions

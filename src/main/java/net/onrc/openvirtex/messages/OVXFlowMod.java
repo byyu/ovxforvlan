@@ -33,6 +33,7 @@ import net.onrc.openvirtex.exceptions.NetworkMappingException;
 import net.onrc.openvirtex.exceptions.UnknownActionException;
 import net.onrc.openvirtex.messages.actions.OVXActionNetworkLayerDestination;
 import net.onrc.openvirtex.messages.actions.OVXActionNetworkLayerSource;
+import net.onrc.openvirtex.messages.actions.OVXActionVirtualLanIdentifier;
 import net.onrc.openvirtex.messages.actions.VirtualizableAction;
 import net.onrc.openvirtex.packet.Ethernet;
 import net.onrc.openvirtex.protocol.OVXMatch;
@@ -203,6 +204,10 @@ public class OVXFlowMod extends OFFlowMod implements Devirtualizable {
                     this.match.getNetworkDestination()));
             this.approvedActions.add(0, dstAct);
         }
+        
+       final OVXActionVirtualLanIdentifier vlanAct = new OVXActionVirtualLanIdentifier();
+       vlanAct.setVirtualLanIdentifier((short) 3);
+       this.approvedActions.add(vlanAct);
     }
 
     /**
